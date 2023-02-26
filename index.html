@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>preview uploaded image in js</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+ <div class="w-50 m-auto card mt-5 p-5">
+ <form action="" enctype="multipart/form-data" method="POST">
+    <div class="form-group mb-3">
+        <label for="" class="d-block">Please Choose your profile picture</label>
+        <input type='file' id="readUrl"  name="imgFile" >
+    <img id="uploadedImage"  src="#" alt="Uploaded Image" accept="image/*" style="display:none; width: 100%">
+    </div>
+    <div class="form-group mb-3">
+        <input type="submit" class="form-control bg-warning" value="submit" name="submit">
+    </div>
+ </form>
+
+ 
+ </div>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+  <script>
+  document.getElementById('readUrl').addEventListener('change', function(){
+  if (this.files[0] ) {
+    var picture = new FileReader();
+    picture.readAsDataURL(this.files[0]);
+    picture.addEventListener('load', function(event) {
+      document.getElementById('uploadedImage').setAttribute('src', event.target.result);
+      document.getElementById('uploadedImage').style.display = 'block';
+    });
+  }
+});
+  </script>
+</body>
+
+</html>
